@@ -1,6 +1,6 @@
 <button (click)="increase()">Increase</button>
-<button (click)="decrease()">Decrease</button>
-<button (click)="clear()">Clear</button>
+<button (click)="decrease()" [disabled]="isDecreaseDisabled$ | async">Decrease</button>
+<button (click)="clear()" [disabled]="isDecreaseDisabled$ | async">Clear</button>
 
 <div>
   <span> Counter is: {{ count$ | async }}</span>
