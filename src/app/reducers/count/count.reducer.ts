@@ -12,7 +12,7 @@ const initialState: CountState = {
     count: 0,
     updatedAt: Date.now()
 };
-export const countReducer = (state = initialState, action: Action) => {
+export const countReducer = (state = initialState, action: CountActions) => {
     switch (action.type) {
         case countActionsType.increase:
             return {
@@ -30,6 +30,11 @@ export const countReducer = (state = initialState, action: Action) => {
             return {
                 ...state,
                 count: 0,
+            };
+        case countActionsType.updatedAt:
+            return {
+                ...state,
+                updatedAt: action.payload.updatedAt,
             };
         default:
             return state;
