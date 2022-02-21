@@ -3,9 +3,9 @@
 <button (click)="clear()">Clear</button>
 
 <div>
-  <span> Counter is: {{ 1 }}</span>
+  <span> Counter is: {{ count$ | async }}</span>
   <br>
-  <span> Updated at: {{ 54353343 | date }}</span>
+  <span> Updated at: {{ updatedAt$ | async | date  }}</span>
 </div>
 
 <router-outlet></router-outlet>

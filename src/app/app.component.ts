@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { select, Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { CountState } from './reducers/count/count.reducer';
+import { selectCount, selectUpdatedAt } from './reducers/count/count.selectors';
 
 @Component({
   selector: 'app-root',
@@ -6,7 +10,10 @@ import { Component } from '@angular/core';
   styleUrls: []
 })
 export class AppComponent {
-  title = 'ngrx-app';
+  public count$: Observable<number> = this.store$.pipe(select(selectCount));
+  public updatedAt$: Observable<number> = this.store$.pipe(select(selectUpdatedAt));
+
+  constructor(private store$: Store<CountState>) {}
 
   increase() {
 
