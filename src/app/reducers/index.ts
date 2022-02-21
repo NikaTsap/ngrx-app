@@ -3,14 +3,14 @@ import {
   MetaReducer
 } from '@ngrx/store';
 import { environment } from '../../environments/environment';
-import { countReducer, CountState } from './count/count.reducer';
+import { countNode, countReducer, CountState } from './count/count.reducer';
 
 export interface State {
-  count: CountState;
+  [countNode]: CountState;
 }
 
 export const reducers: ActionReducerMap<State> = {
-  count: countReducer
+  [countNode]: countReducer
 };
 
 
